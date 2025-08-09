@@ -6,7 +6,7 @@ const Itemslist = ({items = []}) => {
       <div>
         {items.map((item) => (
           <div key={item._id} className="p-2 border-b border-gray-200">
-            <div className="mt-5 mx-auto justify-center items-center ml-[40%]">
+            <div className="mt-5 mx-auto justify-center items-center ml-[35%]">
             <img src={CDN_URL+item.cloudinaryImageId}
             className="h-48 object-cover rounded-md mb-3"/>
             </div>

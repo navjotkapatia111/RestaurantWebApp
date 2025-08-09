@@ -1,7 +1,6 @@
 import React, {Suspense, useState, useEffect}  from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/header";
-import Body from "./components/body";
 import Contact from "./components/contact";
 import Error from "./components/error";
 import Cart from "./components/cart";
@@ -14,6 +13,7 @@ import About from "./components/about"
 import SignIn from "./components/sign";
 import List from "./components/list";
 import ResetPassword from "./components/resetpassword";
+import Body from "./components/body";
 const Applayout = () => {
     const[userName, setUserName] = useState();
     // const[setshowsignup] = useState(false)
@@ -46,8 +46,8 @@ const appRouter = createBrowserRouter([
         element:<Applayout />,
         children: [
             {
-                path: "/",
-                element:<Body />,
+                path:"/",
+                element:<Body/>
             },
             {
                 path:"/list",

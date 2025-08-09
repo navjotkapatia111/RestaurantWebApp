@@ -13,6 +13,7 @@ const List = () => {
     const fetchMenu = async () => {
       try {
         const response = await axios.get("http://localhost:5001/api/v1/user/get")
+        console.log("response",response)
         setResInfo(response.data.list)
       } catch (error) {
         console.log(error)

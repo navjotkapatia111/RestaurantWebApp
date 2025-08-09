@@ -1,61 +1,30 @@
-import RestaurantCard from "./restuarantcard";
-import { useState, useEffect } from "react";
-import resList from "../utils/data";
-import Shimmer from "./shimmer";
+
+import React from "react";
 import { Link } from "react-router";
-const Body = () =>{
 
-    let [listofres, setlistofres] =useState([])
-    let [filteredres, setfilteredres] =useState([])
-
-    const[searchtext,setsearchtext] = useState("");
-
-
-    useEffect(() => {
-        setlistofres(resList)
-        setfilteredres(resList)
-    }, []);
-   
-    return listofres.length == 0 ? (
-        <Shimmer />
-        ) : (
-        <div className="body">
-        <div className="filter flex">
-            <div className="search m-4 p-4">
-                <input type="text" className="border border-solid border-black" value={searchtext} onChange={(e) => {
-                    setsearchtext(e.target.value);
-                }}/>
-                <button className="px-4 py-2 bg-green-100 m-4 rounded-lg" onClick={() => {
-                    console.log(searchtext)
-                    const filteredres = listofres.filter(
-                        (res)=>res.card.card.info.name.toLowerCase().
-                        includes(searchtext.toLowerCase()))
-                        setfilteredres(filteredres)
-
-                }}>Search</button>
-            </div>
-            <div className="search m-4 p-4 flex items-center">
-            <button className="px-4 py-2 bg-gray-50 rounded-lg" onClick={() => 
-            {
-                filteredlist = listofres.filter(res=>res.card.card.info.avgRating>4)
-                setlistofres(filteredlist)
-            }}>
-                </button>
-            </div>
-            
-        </div>
-        <div className="flex flex-wrap">
-            {/* {filteredres.map((restuarant) => (
-                // <Link 
-                // key={restuarant.card.card.info.id}
-                // to={"/restaurantmenu/"+restuarant.card.card.info.id}>
-                // <RestaurantCard  resData={restuarant} />
-                // </Link>
-            ))} */}
-            
-        </div>
-        </div>
-    )
+export default function Body() {
+  return (
+    <div className="font-sans">
+     
+<section className="py-16 bg-white">
+  <div className="max-w-6xl mx-auto px-6 text-center">
+    <h3 className="text-3xl font-bold text-gray-800 mb-4">
+      Welcome to Our Restaurant
+    </h3>
+    <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+      At <span className="font-semibold text-orange-500">Restaurant</span>, we
+      believe food is more than just a meal — it’s an experience. Our chefs
+      carefully craft every dish using the freshest locally sourced ingredients,
+      blending traditional recipes with modern flavors. Whether you're here for
+      a family gathering, a romantic dinner, or a casual lunch with friends, we
+      promise to serve you a plate full of warmth, flavor, and memories.
+    </p>
+    <Link to="/list">
+    <button className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold text-lg shadow-lg"> ORDER NOW </button>
+    </Link>
+  </div>
+ 
+</section>
+    </div>
+  );
 }
-<RestaurantCard />
-export default Body;
