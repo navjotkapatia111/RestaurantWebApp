@@ -10,7 +10,6 @@ import { route } from './routes/user_routes.js'
 import { items } from './routes/menu_routes.js'
 import { cart_route } from './routes/cart_routes.js'
 export const app = express()
-const cors = require('cors');
 app.use(cors({
   origin: '*'
 }));
