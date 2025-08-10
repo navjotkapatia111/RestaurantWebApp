@@ -1,5 +1,5 @@
 import express from 'express'
-import 'dotenv/config.js'
+import 'dotenv/config'
 import { dbconnection } from './config/dbconnections.js'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
@@ -23,7 +23,7 @@ app.use('/api/v1/router',route)
 app.use('/api/v1/items',items)
 app.use('/api/v1/cart',cart_route)
 // app.use('/api/v1/mail',mail_route)
-const port = process.env.PORT || 5000
+const port = 5000
 
 app.listen(port,async()=>{
     await dbconnection()
