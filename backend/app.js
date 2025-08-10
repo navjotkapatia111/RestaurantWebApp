@@ -9,9 +9,11 @@ import cors from 'cors'
 import { route } from './routes/user_routes.js'
 import { items } from './routes/menu_routes.js'
 import { cart_route } from './routes/cart_routes.js'
-// import { mail_route } from './routes/mail_routes.js'
 export const app = express()
-app.use(cors())
+const cors = require('cors');
+app.use(cors({
+  origin: '*'
+}));
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(cookieParser())
@@ -22,7 +24,7 @@ app.use('/api/v1/router',route)
 app.use('/api/v1/items',items)
 app.use('/api/v1/cart',cart_route)
 // app.use('/api/v1/mail',mail_route)
-const port = process.env.PORT
+const port = process.env.PORT || 5000
 
 app.listen(port,async()=>{
     await dbconnection()

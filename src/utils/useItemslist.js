@@ -7,6 +7,7 @@ const Itemslist = () => {
     const fetchMenu = async()=>{
       try {
         const response = await axios.get("http://localhost:5001/api/v1/cart/get")
+        // const response = await axios.get("https://restaurantwebapp-1.onrender.com/api/v1/cart/get")
         console.log("...>>>response---",response.data?.cart_items)
         setmenulist(response)
       } catch (error) {

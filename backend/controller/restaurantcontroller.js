@@ -38,10 +38,16 @@ export const createRestaurant = async(req,res)=>{
 
 export const getRestaurant = async(req,res)=>{
    try{
+    console.log('getRestaurant called - Origin:', req.get('origin'));
+    
     const list = await restaurant.find()
     
-    if(!list){
-        res.status(400).json("No restaurant found",list)
+    if(!list || list.length === 0){
+        return res.status(404).json({
+            success: false,
+            message: "No restaurants found",
+            list: []
+        })
     }
 
     res.status(200).json({
@@ -52,7 +58,12 @@ export const getRestaurant = async(req,res)=>{
     }
 
     catch(error){
-        console.log(error.message)
+        console.log('Error in getRestaurant:', error.message)
+        res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            error: error.message
+        })
     }    
 }
 

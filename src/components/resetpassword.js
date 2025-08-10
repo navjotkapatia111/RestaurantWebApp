@@ -16,7 +16,8 @@ const ResetPassword = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5001/api/v1/router/reset", {
+      // const res = await axios.post("http://localhost:5001/api/v1/router/reset", {
+      const res = await axios.post("restaurantwebapp-production.up.railway.app/api/v1/router/reset", {
         token,
         password,
       });

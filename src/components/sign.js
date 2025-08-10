@@ -16,7 +16,8 @@ const SignIn = ({ showsignin, setshowsignin }) => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://localhost:5001/api/v1/router/login", { email, password });
+      // const res = await axios.post("http://localhost:5001/api/v1/router/login", { email, password });
+      const res = await axios.post("restaurantwebapp-production.up.railway.app/api/v1/router/login", { email, password });
       alert(res.data.message);
       setshowsignin(false);
     } catch (error) {
@@ -26,7 +27,8 @@ const SignIn = ({ showsignin, setshowsignin }) => {
 
   const handleRegister = async () => {
     try {
-      const res = await axios.post("http://localhost:5001/api/v1/router/register", {
+      // const res = await axios.post("http://localhost:5001/api/v1/router/register", {
+      const res = await axios.post("restaurantwebapp-production.up.railway.app/api/v1/router/register", {
         firstname: name,
         email,
         password,
@@ -40,7 +42,8 @@ const SignIn = ({ showsignin, setshowsignin }) => {
 
   const handleForgot = async () => {
     try {
-      const res = await axios.post("http://localhost:5001/api/v1/router/forgot", { email });
+      // const res = await axios.post("http://localhost:5001/api/v1/router/forgot", { email });
+      const res = await axios.post("restaurantwebapp-production.up.railway.app/api/v1/router/forgot", { email });
       alert(res.data.message);
       setIsForgotMode(false);
     } catch (error) {
@@ -51,7 +54,8 @@ const SignIn = ({ showsignin, setshowsignin }) => {
   const handleReset = async () => {
     if (password !== confirmPassword) return setMessage("Passwords do not match");
     try {
-      const res = await axios.post("http://localhost:5001/api/v1/router/reset", { token, password });
+      // const res = await axios.post("http://localhost:5001/api/v1/router/reset", { token, password });
+      const res = await axios.post("restaurantwebapp-production.up.railway.app/api/v1/router/reset", { token, password });
       setMessage(res.data.message);
     } catch (error) {
       setMessage(error.response?.data?.message || "Reset failed");
@@ -132,7 +136,7 @@ const SignIn = ({ showsignin, setshowsignin }) => {
 
         {message && <p className="text-red-500 text-center mt-2">{message}</p>}
 
-        {/* Forgot link */}
+   
         {isSignIn && !isResetPassword && !isForgotMode && (
           <p
             className="text-sm text-right mt-2 text-blue-600 underline cursor-pointer"
@@ -145,7 +149,7 @@ const SignIn = ({ showsignin, setshowsignin }) => {
           </p>
         )}
 
-        {/* Mode switch */}
+    
         <p
           className="text-sm text-center mt-4 text-gray-600 underline cursor-pointer"
           onClick={() => {

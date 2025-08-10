@@ -8,7 +8,8 @@ import axios from "axios";
 
     let config = {
         method:"put",
-        url: "http://localhost:5001/api/v1/router/put",
+        // url: "http://localhost:5001/api/v1/router/put",
+        url: "restaurantwebapp-production.up.railway.app/api/v1/router/put",
         headers:{},
         data:data
     }

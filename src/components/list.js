@@ -12,7 +12,8 @@ const List = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/api/v1/user/get")
+        // const response = await axios.get("http://localhost:5001/api/v1/user/get")
+        const response = await axios.get("restaurantwebapp-production.up.railway.app/api/v1/user/get")
         console.log("response",response)
         setResInfo(response.data.list)
       } catch (error) {
