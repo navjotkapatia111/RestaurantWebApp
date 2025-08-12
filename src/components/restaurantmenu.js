@@ -10,7 +10,7 @@ const Restaurantmenu = () => {
     useEffect(()=>{
       const fetchMenu = async()=>{
         try{
-          const data = await axios.get(`http://localhost:5001/api/v1/user/menu?id=${id}`)   
+          const data = await axios.get(`http://localhost:5000/api/v1/user/menu?id=${id}`)   
            
           console.log(data)     
           setrestaurant(data.data?.restaurant_data)
