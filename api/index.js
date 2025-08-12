@@ -7,7 +7,7 @@ import { route } from '../backend/routes/user_routes.js'
 import { items } from '../backend/routes/menu_routes.js'
 import { cart_route } from '../backend/routes/cart_routes.js'
 import { router } from '../backend/routes/restaurant_routes.js'
-export const app = express()
+const app = express()
 app.use(cors({
   origin: '*'
 }));
@@ -20,3 +20,5 @@ app.use('/api/v1/user',router)
 app.use('/api/v1/router',route)
 app.use('/api/v1/items',items)
 app.use('/api/v1/cart',cart_route)
+
+export default app;
