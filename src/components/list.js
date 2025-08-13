@@ -12,7 +12,7 @@ const List = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/v1/user/get")
+        const response = await axios.get("https://restaurant-web-app-gxyi.vercel.app/api/v1/user/get")
         
         console.log("response",response)
         setResInfo(response.data.list)

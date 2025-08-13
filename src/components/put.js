@@ -8,7 +8,7 @@ import axios from "axios";
 
     let config = {
         method:"put",
-        url: "http://localhost:5000/api/v1/router/put",
+        url: "https://restaurant-web-app-gxyi.vercel.app/api/v1/router/put",
        
         headers:{},
         data:data

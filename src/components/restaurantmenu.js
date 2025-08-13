@@ -1,5 +1,4 @@
 import { CDN_URL } from "../utils/constants"
-import Shimmer from "./shimmer"
 import { useParams } from "react-router"
 import { useEffect, useState } from "react"
 import axios from "axios"
@@ -10,7 +9,7 @@ const Restaurantmenu = () => {
     useEffect(()=>{
       const fetchMenu = async()=>{
         try{
-          const data = await axios.get(`http://localhost:5000/api/v1/user/menu?id=${id}`)   
+          const data = await axios.get(`https://restaurant-web-app-gxyi.vercel.app/api/v1/user/menu?id=${id}`)   
            
           console.log(data)     
           setrestaurant(data.data?.restaurant_data)
