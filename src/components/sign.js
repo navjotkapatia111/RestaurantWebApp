@@ -16,7 +16,7 @@ const SignIn = ({ showsignin, setshowsignin }) => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("https://restaurant-web-app-gxyi.vercel.app/api/v1/router/login", { email, password });
+      const res = await axios.post("http://localhost:5000/api/v1/router/login", { email, password });
      
       alert(res.data.message);
       setshowsignin(false);
@@ -27,7 +27,7 @@ const SignIn = ({ showsignin, setshowsignin }) => {
 
   const handleRegister = async () => {
     try {
-      const res = await axios.post("https://restaurant-web-app-gxyi.vercel.app/api/v1/router/register", {
+      const res = await axios.post("http://localhost:5000/api/v1/router/register", {
       
         firstname: name,
         email,
@@ -42,7 +42,7 @@ const SignIn = ({ showsignin, setshowsignin }) => {
 
   const handleForgot = async () => {
     try {
-      const res = await axios.post("https://restaurant-web-app-gxyi.vercel.app/api/v1/router/forgot", { email });
+      const res = await axios.post("http://localhost:5000/api/v1/router/forgot", { email });
       
       alert(res.data.message);
       setIsForgotMode(false);

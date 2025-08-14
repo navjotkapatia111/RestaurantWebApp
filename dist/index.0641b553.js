@@ -37801,7 +37801,7 @@ const SignIn = ({ showsignin, setshowsignin })=>{
     const [message, setMessage] = (0, _react.useState)("");
     const handleLogin = async ()=>{
         try {
-            const res = await (0, _axiosDefault.default).post("https://restaurant-web-app-gxyi.vercel.app/api/v1/router/login", {
+            const res = await (0, _axiosDefault.default).post("http://localhost:5000/api/v1/router/login", {
                 email,
                 password
             });
@@ -37813,7 +37813,7 @@ const SignIn = ({ showsignin, setshowsignin })=>{
     };
     const handleRegister = async ()=>{
         try {
-            const res = await (0, _axiosDefault.default).post("https://restaurant-web-app-gxyi.vercel.app/api/v1/router/register", {
+            const res = await (0, _axiosDefault.default).post("http://localhost:5000/api/v1/router/register", {
                 firstname: name,
                 email,
                 password
@@ -37826,7 +37826,7 @@ const SignIn = ({ showsignin, setshowsignin })=>{
     };
     const handleForgot = async ()=>{
         try {
-            const res = await (0, _axiosDefault.default).post("https://restaurant-web-app-gxyi.vercel.app/api/v1/router/forgot", {
+            const res = await (0, _axiosDefault.default).post("http://localhost:5000/api/v1/router/forgot", {
                 email
             });
             alert(res.data.message);
