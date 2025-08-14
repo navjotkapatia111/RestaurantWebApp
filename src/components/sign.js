@@ -54,7 +54,7 @@ const SignIn = ({ showsignin, setshowsignin }) => {
   const handleReset = async () => {
     if (password !== confirmPassword) return setMessage("Passwords do not match");
     try {
-      const res = await axios.post("https://restaurant-web-app-gxyi.vercel.app/api/v1/router/reset", { token, password });
+      const res = await axios.post("http://localhost:5000/api/v1/router/reset", { token, password });
   
       setMessage(res.data.message);
     } catch (error) {

@@ -37496,7 +37496,7 @@ const Restaurantmenu = ()=>{
     (0, _react.useEffect)(()=>{
         const fetchMenu = async ()=>{
             try {
-                const data = await (0, _axiosDefault.default).get(`https://restaurant-web-app-gxyi.vercel.app/api/v1/user/menu?id=${id}`);
+                const data = await (0, _axiosDefault.default).get(`http://localhost:5000/api/v1/user/menu?id=${id}`);
                 console.log(data);
                 setrestaurant(data.data?.restaurant_data);
             } catch (error) {
@@ -37838,7 +37838,7 @@ const SignIn = ({ showsignin, setshowsignin })=>{
     const handleReset = async ()=>{
         if (password !== confirmPassword) return setMessage("Passwords do not match");
         try {
-            const res = await (0, _axiosDefault.default).post("https://restaurant-web-app-gxyi.vercel.app/api/v1/router/reset", {
+            const res = await (0, _axiosDefault.default).post("http://localhost:5000/api/v1/router/reset", {
                 token,
                 password
             });
@@ -38013,7 +38013,7 @@ const List = ()=>{
     (0, _react.useEffect)(()=>{
         const fetchMenu = async ()=>{
             try {
-                const response = await (0, _axiosDefault.default).get("https://restaurant-web-app-gxyi.vercel.app/api/v1/user/get");
+                const response = await (0, _axiosDefault.default).get("http://localhost:5000/api/v1/user/get");
                 console.log("response", response);
                 setResInfo(response.data.list);
             } catch (error) {
@@ -38141,7 +38141,7 @@ const ResetPassword = ()=>{
             return;
         }
         try {
-            const res = await (0, _axiosDefault.default).post("https://restaurant-web-app-gxyi.vercel.app/api/v1/router/reset", {
+            const res = await (0, _axiosDefault.default).post("http://localhost:5000/api/v1/router/reset", {
                 token,
                 password
             });

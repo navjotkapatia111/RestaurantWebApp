@@ -1,5 +1,31 @@
-// const port = process.env.PORT || 5000
-//  app.listen(port,async()=>{
-//     await dbconnection()
-//     console.log(`Server is running at ${port}`)
-// })
+import express from 'express'
+import morgan from 'morgan'
+import cookieParser from 'cookie-parser'
+import bodyParser from 'body-parser'
+import cors from 'cors'
+import { dbconnection } from './config/dbconnections.js'
+import { route } from './routes/user_routes.js'
+import { items } from './routes/menu_routes.js'
+import { cart_route } from './routes/cart_routes.js'
+import { router } from './routes/restaurant_routes.js'
+const app = express()
+app.use(cors({
+  origin: '*'
+}));
+app.use(express.json())
+app.use(morgan('dev'))
+app.use(cookieParser())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
+app.use('/api/v1/user',router)
+app.use('/api/v1/router',route)
+app.use('/api/v1/items',items)
+app.use('/api/v1/cart',cart_route)
+
+export default app;
+
+const port = process.env.PORT || 5000
+ app.listen(port,async()=>{
+    await dbconnection()
+    console.log(`Server is running at ${port}`)
+})
